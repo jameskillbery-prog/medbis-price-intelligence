@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "medbis-price-intelligence"
+version = "0.1.0"
+description = "Desktop price intelligence platform for MedBIS."
+readme = "README.md"
+requires-python = ">=3.12"
+authors = [{ name = "MedBIS" }]
+dependencies = [
+    "beautifulsoup4>=4.12.3",
+    "customtkinter>=5.2.2",
+    "openpyxl>=3.1.5",
+    "pandas>=2.2.2",
+    "playwright>=1.45.0",
+    "pyinstaller>=6.9.0",
+    "rapidfuzz>=3.9.6",
+    "requests>=2.32.3",
+    "sqlalchemy>=2.0.31",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.2.2",
+    "ruff>=0.5.5",
+    "mypy>=1.11.0",
+]
+
+[project.scripts]
+medbis-price-intelligence = "medbis_price_intelligence.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+plugins = ["sqlalchemy.ext.mypy.plugin"]
+
