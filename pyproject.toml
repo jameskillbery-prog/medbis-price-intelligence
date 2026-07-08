@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "medbis-price-intelligence"
+version = "0.1.0"
+description = "Windows desktop pricing intelligence for MedBIS products."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+  "beautifulsoup4>=4.12",
+  "customtkinter>=5.2",
+  "openpyxl>=3.1",
+  "pandas>=2.2",
+  "playwright>=1.45",
+  "pyinstaller>=6.8",
+  "rapidfuzz>=3.9",
+  "requests>=2.32",
+  "sqlalchemy>=2.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.2", "ruff>=0.5"]
+
+[project.scripts]
+medbis-price-intelligence = "medbis_price_intelligence.main:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
